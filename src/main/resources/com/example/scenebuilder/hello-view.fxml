@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="handleButtonAction" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.scenebuilder.Controller">
+   <children>
+      <ImageView blendMode="SRC_ATOP" fitHeight="102.0" fitWidth="255.0" layoutX="637.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@UniversityLogoTrans.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="infoContainer" alignment="CENTER" layoutX="14.0" layoutY="58.0" prefHeight="350.0" prefWidth="200.0" style="-fx-border-width: 1; -fx-border-color: BLACK; -fx-background-color: #faac9a;">
+         <effect>
+            <DropShadow />
+         </effect>
+      </VBox>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3b71a4" height="672.0" layoutX="224.0" layoutY="55.0" stroke="BLACK" strokeType="INSIDE" width="407.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="302.0" layoutX="254.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" width="351.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="269.0" layoutX="252.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="351.0" />
+      <Button id="handleButtonAction" layoutX="319.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="74.0" text="AC">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="479.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonAction1" prefHeight="25.0" prefWidth="74.0" text="MQ">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="356.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAction2" prefHeight="54.0" prefWidth="160.0" text="Arithmetic-Logic Circuits" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="373.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleButtonAction3" prefHeight="54.0" prefWidth="126.0" text="MBR">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="676.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonAction4" prefHeight="211.0" prefWidth="126.0" text="Input/Output">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="303.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction6" prefHeight="45.0" prefWidth="82.0" text="PC">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="303.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleButtonAction7" prefHeight="45.0" prefWidth="82.0" text="MAR">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="477.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction8" prefHeight="45.0" prefWidth="82.0" text="IBR">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="478.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleButtonAction10" prefHeight="45.0" prefWidth="82.0" text="IR">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="460.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleButtonAction9" prefHeight="74.0" prefWidth="105.0" text="Control Circuits" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="708.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonAction5" prefHeight="230.0" prefWidth="171.0" text="Main Memory">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Text layoutX="280.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Central Processing Unit (CPU)">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Text>
+      <Text layoutX="331.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arithmatic-Logic Unit (ALU)">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="387.0" layoutY="679.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Program Control Unit (CC) ">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Text>
+      <Line endX="100.0" startX="-100.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text layoutX="645.0" layoutY="429.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions and Data">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Text>
+      <Line endX="3.5" endY="-11.0" layoutX="382.0" layoutY="196.0" startX="3.5" startY="2.0" />
+      <Line endX="3.5" endY="-9.0" layoutX="408.0" layoutY="262.0" startX="3.5" startY="10.5" />
+      <Polygon fill="#544949" layoutX="461.0" layoutY="287.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="3.5" endY="-11.0" layoutX="447.0" layoutY="273.0" startX="3.5" startY="11.0" />
+      <Polygon fill="#544949" layoutX="500.0" layoutY="265.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="180.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="#544949" layoutX="435.0" layoutY="188.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="-179.3" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="3.5" endY="-7.6666717529296875" layoutX="362.0" layoutY="181.0" startX="3.5" startY="10.5" />
+      <Polygon fill="#544949" layoutX="415.0" layoutY="202.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="3.5" endY="-11.0" layoutX="505.0" layoutY="196.0" startX="3.5" startY="2.0" />
+      <Polygon fill="#544949" layoutX="558.0" layoutY="188.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="180.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="3.5" endY="-7.6666717529296875" layoutX="485.0" layoutY="181.0" startX="3.5" startY="10.5" />
+      <Polygon fill="#544949" layoutX="538.0" layoutY="202.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="100.0" startX="-100.0" />
+      <Line endX="51.0" endY="-0.5" layoutX="428.0" layoutY="159.0" startX="-25.833343505859375" startY="-0.5" />
+      <Polygon fill="#544949" layoutX="451.0" layoutY="167.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="-0.5" endY="-14.333343505859375" layoutX="436.0" layoutY="354.0" startX="-0.5" startY="159.0" />
+      <Line endX="77.16665649414062" layoutX="387.0" layoutY="514.0" startX="10.5" />
+      <Line endX="24.833343505859375" layoutX="438.0" layoutY="441.0" startX="-2.5" />
+      <Polygon fill="#544949" layoutX="501.0" layoutY="469.0" points="-37.5, -19.0, -37.5, -36.333343505859375, -24.166656494140625, -27.666656494140625" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="#544949" layoutX="501.0" layoutY="541.0" points="-37.5, -19.0, -37.5, -36.333343505859375, -24.166656494140625, -27.666656494140625" scaleX="0.9" scaleY="0.9" scaleZ="0.9" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="83.83331298828125" layoutX="436.0" layoutY="476.0" startX="-68.83334350585938" />
+      <Line endX="1.16668701171875" endY="-10.94921875" layoutX="520.0" layoutY="476.0" startX="1.16668701171875" startY="9.05078125" />
+      <Polygon fill="#544949" layoutX="570.0" layoutY="499.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="1.16668701171875" endY="-8.44921875" layoutX="366.0" layoutY="485.0" startX="1.16668701171875" startY="-0.44921875" />
+      <Polygon fill="#544949" layoutX="417.0" layoutY="496.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fill="#544949" layoutX="425.0" layoutY="542.0" points="-37.5, -19.0, -37.5, -36.333343505859375, -24.166656494140625, -27.666656494140625" rotate="-180.0" scaleX="0.9" scaleY="0.9" scaleZ="0.9" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="1.5" endY="-16.75" layoutX="346.0" layoutY="483.0" startX="1.5" startY="9.0" />
+      <Polygon fill="#544949" layoutX="397.0" layoutY="475.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="-180.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="1.16668701171875" endY="-10.94921875" layoutX="323.0" layoutY="475.0" startX="1.16668701171875" startY="9.05078125" />
+      <Polygon fill="#544949" layoutX="373.0" layoutY="497.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="1.16668701171875" endY="-10.94921875" layoutX="518.0" layoutY="550.0" scaleX="0.9" scaleY="0.9" scaleZ="0.9" startX="1.16668701171875" startY="9.05078125" />
+      <Polygon fill="#544949" layoutX="568.0" layoutY="572.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" scaleX="0.9" scaleY="0.9" scaleZ="0.9" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="4.0" endY="-19.44921875" layoutX="341.0" layoutY="558.0" startX="4.0" startY="69.05078125" />
+      <Line endX="124.5" endY="3.05078125" layoutX="220.0" layoutY="624.0" startX="443.0830078125" startY="3.05072021484375" />
+      <Line endX="569.7901000976562" endY="26.05072021484375" layoutX="94.0" layoutY="601.0" startX="598.6521606445312" startY="26.05072021484375" />
+      <Polygon fill="#544949" layoutX="156.0" layoutY="610.0" points="-2754.10693359375, -98.06704711914062, -2631.5927734375, -47.4613037109375, -2603.695068359375, -35.248870849609375" rotate="-180.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="17.5" layoutX="553.0" layoutY="296.0" startX="-54.0" />
+      <Line endX="57.0" endY="40.5" layoutX="514.0" layoutY="256.0" startX="57.0" startY="-25.94921875" />
+      <Line endX="31.5" layoutX="625.0" layoutY="229.0" startX="-54.0" />
+      <Polygon fill="#544949" layoutX="695.0" layoutY="257.0" points="-37.5, -19.0, -37.5, -36.333343505859375, -24.166656494140625, -27.666656494140625" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="36.5" layoutX="555.0" layoutY="311.0" startX="-40.5" />
+      <Line endX="75.5" endY="39.05078125" layoutX="516.0" layoutY="271.0" startX="75.5" startY="-27.5" />
+      <Line endX="49.0" layoutX="628.0" layoutY="244.0" startX="-36.5" />
+      <Polygon fill="#544949" layoutX="552.0" layoutY="339.0" points="-37.5, -17.666656494140625, -37.5, -38.333343505859375, -51.5, -29.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="472.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions and Data">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Text>
+      <Line endX="-13.0" endY="-0.5" layoutX="473.0" layoutY="584.0" startX="-25.833343505859375" startY="-0.5" />
+      <Polygon fill="#544949" layoutX="497.0" layoutY="592.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="90.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="-13.0" endY="-0.5" layoutX="473.0" layoutY="596.0" startX="-25.833343505859375" startY="-0.5" />
+      <Polygon fill="#544949" layoutX="497.0" layoutY="604.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="90.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="-13.0" endY="-0.5" layoutX="473.0" layoutY="636.0" startX="-25.833343505859375" startY="-0.5" />
+      <Polygon fill="#544949" layoutX="497.0" layoutY="644.0" points="-41.5, -14.5, -57.5, -14.5, -49.5, -3.0" rotate="90.0" scaleX="0.5" scaleY="0.5" scaleZ="0.5" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="439.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Circle fill="DODGERBLUE" layoutX="527.0" layoutY="678.0" radius="1.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="454.0" layoutY="607.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="454.0" layoutY="615.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle layoutX="454.0" layoutY="624.0" radius="2.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text layoutX="371.0" layoutY="602.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Control">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="371.0" layoutY="621.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Signals">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="640.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Addresses">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="12.0" />
+         </font>
+      </Text>
+      <Polygon fill="#544949" layoutX="723.0" layoutY="655.0" points="-37.5, -19.0, -37.5, -36.333343505859375, -24.166656494140625, -27.666656494140625" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="49.0" layoutX="658.0" layoutY="463.0" startX="-36.5" />
+      <Line endX="77.0" endY="48.5" layoutX="544.0" layoutY="414.0" startX="77.0" startY="-78.40493774414062" />
+      <Line endX="37.5" endY="0.095062255859375" layoutX="583.0" layoutY="335.0" startX="-71.05380249023438" startY="0.095062255859375" />
+      <Polygon fill="#544949" layoutX="552.0" layoutY="362.0" points="-37.5, -17.666656494140625, -37.5, -38.333343505859375, -51.5, -29.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="1.5" endY="-19.970062255859375" layoutX="486.0" layoutY="358.0" startX="1.5" startY="9.0" />
+      <Line endX="52.10467529296875" endY="0.095062255859375" layoutX="558.0" layoutY="367.0" startX="-71.05380249023438" startY="0.095062255859375" />
+      <Line endX="77.0" endY="48.5" layoutX="533.0" layoutY="448.0" startX="77.0" startY="-80.40493774414062" />
+      <Line endX="49.0" layoutX="651.0" layoutY="497.0" startX="-40.60693359375" />
+      <Polygon fill="#544949" layoutX="731.0" layoutY="525.0" points="-37.5, -19.0, -37.5, -36.333343505859375, -24.166656494140625, -27.666656494140625" stroke="BLACK" strokeType="INSIDE" />
+      <TableView fx:id="cpuTableView" layoutX="14.0" layoutY="424.0" prefHeight="302.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="componentColumn" prefWidth="89.0" text="Component" />
+          <TableColumn fx:id="instructionColumn" prefWidth="110.0" text="Instruction/Data" />
+        </columns>
+      </TableView>
+      <Button layoutX="77.0" layoutY="738.0" mnemonicParsing="false" onAction="#initialize2" prefHeight="25.0" prefWidth="74.0" text="Start">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="718.0" layoutY="704.0" mnemonicParsing="false" onAction="#updICClear" prefHeight="45.0" prefWidth="105.0" text="Reset">
+         <effect>
+            <DropShadow />
+         </effect>
+         <font>
+            <Font name="Arial Bold Italic" size="12.0" />
+         </font>
+      </Button>
+
+   </children>
+</AnchorPane>

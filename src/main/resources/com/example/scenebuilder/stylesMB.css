@@ -1,0 +1,16 @@
+.general-label {
+    -fx-font-family: "Arial";
+    -fx-padding: 0px 10px 0px 10px; 
+    -fx-font-size: 16px;
+    -fx-text-fill: black;         
+    -fx-text-alignment: center;         
+    -fx-wrap-text: true;          
+}
+.title-label {
+    -fx-font-family: "Arial Bold";
+    -fx-padding: 0px 10px 0px 10px; 
+    -fx-font-size: 30px;
+    -fx-text-fill: black;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
