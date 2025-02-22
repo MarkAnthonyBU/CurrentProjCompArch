@@ -1,26 +1,24 @@
 
-
 package com.example.scenebuilder;
 
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.shape.Circle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.TableCell;
 import javafx.util.Callback;
 
 import javafx.scene.shape.Path;
 import javafx.animation.PathTransition;
+import javafx.util.Duration;
 
 import java.awt.image.ComponentSampleModel;
 import java.util.List;
@@ -430,7 +428,30 @@ public class Controller {
 
 		cpuTableView.refresh();
 	}
+	@FXML
+	private Circle myCircle;
+	private double x;
+	private double y;
+	@FXML
+	private TextArea myTextArea;
 
 
+	public void start(ActionEvent e) {
+
+		double initialY = myTextArea.getLayoutY();  // Use getLayoutY() instead of getCenterY()
+
+		// Create a TranslateTransition to animate the TextArea's movement
+		TranslateTransition translate = new TranslateTransition();
+		translate.setNode(myTextArea); // Set the TextArea as the node to animate
+		translate.setDuration(Duration.seconds(3)); // Set animation duration to 3 seconds
+		translate.setCycleCount(1); // Run it only once
+		translate.setByY(250); // Move 250 units down on the Y-axis
+		translate.setAutoReverse(false); // Do not reverse after moving down
+
+		// Start the translation animation
+		translate.play();
+	}
 }
+
+
 
