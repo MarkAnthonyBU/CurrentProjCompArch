@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
         
         primaryStage.getScene().getStylesheets().add(getClass().getResource("/com/example/scenebuilder/stylesMB.css").toExternalForm());
         
-        primaryStage.show();
+        primaryStage.show(); 
     }
 
     public static void main(String[] args) {

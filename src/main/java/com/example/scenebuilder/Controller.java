@@ -32,7 +32,7 @@ public class Controller {
 	@FXML
 	private Label infoLabel = new Label(""); //String, used for storing and displaying information for IAS components. Also put into infoContainer
 	@FXML
-	private Button btnStart;
+	private Button btnStart, btnAC, btnMQ, btnALC, btnMBR, btnIO, btnPC, btnIBR, btnMAR, btnIR, btnCC, btnMM;
 
 	// For Component Visual Table
 	@FXML private TableView<Components> cpuTableView;
@@ -41,6 +41,23 @@ public class Controller {
 	@FXML private TableColumn<Components, Button> actionColumn;
 
 	private ObservableList<Components> Components = FXCollections.observableArrayList();
+	
+	//@FXML
+	private void toggleButtons(int i) { //If i == 1, then disable all buttons
+		boolean disable = false;
+		if (i == 1) {disable = true;}
+	    btnAC.setDisable(disable);
+	    btnMQ.setDisable(disable);
+	    btnALC.setDisable(disable);
+	    btnMBR.setDisable(disable);
+	    btnIO.setDisable(disable);
+	    btnPC.setDisable(disable);
+	    btnIBR.setDisable(disable);
+	    btnMAR.setDisable(disable);
+	    btnIR.setDisable(disable);
+	    btnCC.setDisable(disable);
+	    btnMM.setDisable(disable);
+	}
 	
 //	@FXML 
 //	void move() {
@@ -62,6 +79,12 @@ public class Controller {
 	 */
 	@FXML
 	void updICClear() {
+		if (animationInProgress) {
+			animationInProgress = false;
+			System.out.println("Animation Killed Prematurely");
+		}
+		toggleButtons(0);
+		btnStart.setOnAction(event -> initialize2());  //Resets onAction method of btnStart, assumes animation has started, will fix
 		infoContainer.getChildren().clear();
 		IASComponentClass.updateLabels(-1, titleLabel, infoLabel, infoContainer);
 	}
@@ -156,10 +179,23 @@ public class Controller {
         startInstruction();
         btnStart.setText("Next");
         btnStart.setOnAction(event -> testmethod());
+        toggleButtons(1);
     }
+    
+    
+    
+    
+    //IMPORTANT
+    private boolean animationInProgress = false;
     void testmethod() {
-    	System.out.println("Oh yeah baby new method");
+    	//System.out.println("Oh yeah baby new method");
+    	animationInProgress = true;
+    	
     }
+    
+    
+    
+    
 	private void setButtonActions() {
 		for (int i = 0; i < Components.size() - 1; i++) {
 			Components current = Components.get(i);
@@ -210,7 +246,6 @@ public class Controller {
 
 
 	public void start(ActionEvent e) {
-
 		double initialY = myTextArea.getLayoutY();  // Use getLayoutY() instead of getCenterY()
 
 		// Create a TranslateTransition to animate the TextArea's movement

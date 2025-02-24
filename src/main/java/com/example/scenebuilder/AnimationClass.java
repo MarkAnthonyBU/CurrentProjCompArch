@@ -4,5 +4,9 @@ package com.example.scenebuilder;
  * which takes an integer argument, which specifies which method or "step" will be played.
  */
 public class AnimationClass {
-
+	public static void playAnimation(int i) {
+		switch (i) {
+		case 1:
+		}
+	}
 }

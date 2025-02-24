@@ -34,50 +34,50 @@
          </effect></Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="302.0" layoutX="254.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" width="351.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="269.0" layoutX="252.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="351.0" />
-      <Button id="handleButtonAction" layoutX="319.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="74.0" text="AC">
+      <Button id="handleButtonAction" fx:id="btnAC" layoutX="319.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="74.0" text="AC">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="479.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonAction1" prefHeight="25.0" prefWidth="74.0" text="MQ">
+      <Button fx:id="btnMQ" layoutX="479.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleButtonAction1" prefHeight="25.0" prefWidth="74.0" text="MQ">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="356.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAction2" prefHeight="54.0" prefWidth="160.0" text="Arithmetic-Logic Circuits" textAlignment="CENTER">
+      <Button fx:id="btnALC" layoutX="356.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAction2" prefHeight="54.0" prefWidth="160.0" text="Arithmetic-Logic Circuits" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="373.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleButtonAction3" prefHeight="54.0" prefWidth="126.0" text="MBR">
+      <Button fx:id="btnMBR" layoutX="373.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleButtonAction3" prefHeight="54.0" prefWidth="126.0" text="MBR">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="676.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonAction4" prefHeight="211.0" prefWidth="126.0" text="Input/Output">
+      <Button fx:id="btnIO" layoutX="676.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleButtonAction4" prefHeight="211.0" prefWidth="126.0" text="Input/Output">
          <effect>
             <DropShadow />
          </effect>
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="303.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction6" prefHeight="45.0" prefWidth="82.0" text="PC">
+      <Button fx:id="btnPC" layoutX="303.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction6" prefHeight="45.0" prefWidth="82.0" text="PC">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="303.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleButtonAction7" prefHeight="45.0" prefWidth="82.0" text="MAR">
+      <Button fx:id="btnMAR" layoutX="303.0" layoutY="492.0" mnemonicParsing="false" onAction="#handleButtonAction7" prefHeight="45.0" prefWidth="82.0" text="MAR">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="477.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction8" prefHeight="45.0" prefWidth="82.0" text="IBR">
+      <Button fx:id="btnIBR" layoutX="477.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleButtonAction8" prefHeight="45.0" prefWidth="82.0" text="IBR">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="478.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleButtonAction10" prefHeight="45.0" prefWidth="82.0" text="IR">
+      <Button fx:id="btnIR" layoutX="478.0" layoutY="493.0" mnemonicParsing="false" onAction="#handleButtonAction10" prefHeight="45.0" prefWidth="82.0" text="IR">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="460.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleButtonAction9" prefHeight="74.0" prefWidth="105.0" text="Control Circuits" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="btnCC" layoutX="460.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleButtonAction9" prefHeight="74.0" prefWidth="105.0" text="Control Circuits" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="708.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonAction5" prefHeight="230.0" prefWidth="171.0" text="Main Memory">
+      <Button fx:id="btnMM" layoutX="708.0" layoutY="444.0" mnemonicParsing="false" onAction="#handleButtonAction5" prefHeight="230.0" prefWidth="171.0" text="Main Memory">
          <effect>
             <DropShadow />
          </effect>
