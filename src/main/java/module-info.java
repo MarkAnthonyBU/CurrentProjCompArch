@@ -1,5 +1,5 @@
 module com.example.scenebuilder {
-    requires javafx.controls;
+    requires transitive javafx.controls; //added transitive
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
