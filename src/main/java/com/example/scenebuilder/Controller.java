@@ -55,8 +55,9 @@ public class Controller {
 //
 //        pathTransition.play();
 //	}
-
-
+	/*
+	 * Resets labels in infoContainer. Calls on switch case "-1" which calls the default case.
+	 */
 	@FXML
 	void updICClear() {
 		infoContainer.getChildren().clear();
@@ -70,85 +71,77 @@ public class Controller {
 		updICClear();
 		//initialize2();
 	}
-
+	/*
+	 * Calls upon updateLabels() method in IASComponentClass. This method is copy and pasted, only difference being
+	 * which integer gets passed in as the first argument. Copied and pasted for handleButtonAction 0-10.
+	 */
     @FXML
     void handleButtonAction() {
-    	IASComponentClass.updateLabels(0, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+    	IASComponentClass.updateLabels(0, titleLabel, infoLabel); //Calls upon method in IASComponent class, passing an int specifying which case.
+		infoContainer.getChildren().clear(); 			//Removes all content from infoContainer.
+		infoContainer.getChildren().addAll(titleLabel, infoLabel); //Adds updated labels back into infoContainer. Info passed from updateLabels().
     }
     @FXML
-    void handleButtonAction1() {
+    void handleButtonAction1() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(1, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction2() {
+    void handleButtonAction2() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(2, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
 
     @FXML
-    void handleButtonAction3() {
+    void handleButtonAction3() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(3, titleLabel, infoLabel);
     	infoContainer.getChildren().clear(); 
-    	infoContainer.getChildren().add(titleLabel);
-    	infoContainer.getChildren().add(infoLabel);
+    	infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction4() {
+    void handleButtonAction4() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(4, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction5() {
+    void handleButtonAction5() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(5, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction6() {
+    void handleButtonAction6() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(6, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction7() {
+    void handleButtonAction7() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(7, titleLabel, infoLabel);
     	infoContainer.getChildren().clear(); 
-    	infoContainer.getChildren().add(titleLabel);
-    	infoContainer.getChildren().add(infoLabel);
+    	infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
 
     @FXML
-    void handleButtonAction8() {
+    void handleButtonAction8() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(8, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction9() {
+    void handleButtonAction9() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(9, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
     @FXML
-    void handleButtonAction10() {
+    void handleButtonAction10() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(10, titleLabel, infoLabel);
 		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().add(titleLabel);
-		infoContainer.getChildren().add(infoLabel);
+		infoContainer.getChildren().addAll(titleLabel, infoLabel);
     }
 
 	public void initialize2() {
