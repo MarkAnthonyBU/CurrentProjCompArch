@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
 
 public class Components {
-    private final SimpleStringProperty componentName;
+    private final SimpleStringProperty componentName; 
     private final SimpleStringProperty instruction;
     private final Button nextButton;
 

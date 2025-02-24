@@ -197,7 +197,7 @@
           <TableColumn fx:id="instructionColumn" prefWidth="110.0" text="Instruction/Data" />
         </columns>
       </TableView>
-      <Button layoutX="77.0" layoutY="738.0" mnemonicParsing="false" onAction="#initialize2" prefHeight="25.0" prefWidth="74.0" text="Start">
+      <Button fx:id="btnStart" layoutX="77.0" layoutY="738.0" mnemonicParsing="false" onAction="#initialize2" prefHeight="25.0" prefWidth="74.0" text="Start">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>

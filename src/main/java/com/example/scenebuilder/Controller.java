@@ -31,6 +31,8 @@ public class Controller {
 	private Label titleLabel = new Label(""); //String, used at title for IAS component, gets stored and displayed in infoContainer.
 	@FXML
 	private Label infoLabel = new Label(""); //String, used for storing and displaying information for IAS components. Also put into infoContainer
+	@FXML
+	private Button btnStart;
 
 	// For Component Visual Table
 	@FXML private TableView<Components> cpuTableView;
@@ -61,13 +63,12 @@ public class Controller {
 	@FXML
 	void updICClear() {
 		infoContainer.getChildren().clear();
-		IASComponentClass.updateLabels(-1, titleLabel, infoLabel);
-		titleLabel.getStyleClass().add("title-label");
-		infoLabel.getStyleClass().add("general-label");
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+		IASComponentClass.updateLabels(-1, titleLabel, infoLabel, infoContainer);
 	}
 	@FXML
 	public void initialize() {
+		titleLabel.getStyleClass().add("title-label");
+		infoLabel.getStyleClass().add("general-label");
 		updICClear();
 		//initialize2();
 	}
@@ -77,129 +78,88 @@ public class Controller {
 	 */
     @FXML
     void handleButtonAction() {
-    	IASComponentClass.updateLabels(0, titleLabel, infoLabel); //Calls upon method in IASComponent class, passing an int specifying which case.
-		infoContainer.getChildren().clear(); 			//Removes all content from infoContainer.
-		infoContainer.getChildren().addAll(titleLabel, infoLabel); //Adds updated labels back into infoContainer. Info passed from updateLabels().
+    	//Calls upon method in IASComponent class, passing an int specifying which case.
+    	IASComponentClass.updateLabels(0, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction1() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(1, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(1, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction2() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(2, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(2, titleLabel, infoLabel, infoContainer);
     }
 
     @FXML
     void handleButtonAction3() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(3, titleLabel, infoLabel);
-    	infoContainer.getChildren().clear(); 
-    	infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(3, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction4() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(4, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(4, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction5() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(5, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(5, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction6() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(6, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(6, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction7() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(7, titleLabel, infoLabel);
-    	infoContainer.getChildren().clear(); 
-    	infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(7, titleLabel, infoLabel, infoContainer);
     }
 
     @FXML
     void handleButtonAction8() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(8, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(8, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction9() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(9, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(9, titleLabel, infoLabel, infoContainer);
     }
     @FXML
     void handleButtonAction10() { //For info, refer to comments on handleButtonAction() above
-    	IASComponentClass.updateLabels(10, titleLabel, infoLabel);
-		infoContainer.getChildren().clear(); 
-		infoContainer.getChildren().addAll(titleLabel, infoLabel);
+    	IASComponentClass.updateLabels(10, titleLabel, infoLabel, infoContainer);
     }
 
-	public void initialize2() {
-//		componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
-//		instructionColumn.setCellValueFactory(new PropertyValueFactory<>("instruction"));
-//
-//		actionColumn.setCellFactory(param -> new TableCell<>() {
-//			private final Button button = new Button("Next");
-//
-//			@Override
-//			protected void updateItem(Button item, boolean empty) {
-//				super.updateItem(item, empty);
-//				if (empty) {
-//					setGraphic(null);
-//				} else {
-//					setGraphic(button);
-//					button.setOnAction(event -> handleNextStep(getIndex()));
-//				}
-//			}
-//		});
-//
-//		ObservableList<Components> componentList = FXCollections.observableArrayList(
-//				new Components("PC"),
-//				new Components("MAR"),
-//				new Components("MBR"),
-//				new Components("IR"),
-//				new Components("IBR"),
-//				new Components("AC")
-//		);
-//
-//		// Add components to the table
-//		cpuTableView.setItems(componentList);
-		//////////////////////////////
-	    System.out.println("Component Column: " + componentColumn);
-	    System.out.println("Instruction Column: " + instructionColumn);
+    @FXML
+    public void initialize2() {
+//        System.out.println("Component Column: " + componentColumn);
+//        System.out.println("Instruction Column: " + instructionColumn);
 
-	    if (componentColumn == null || instructionColumn == null) {
-	        System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
-	        return;
-	    }
+        if (componentColumn == null || instructionColumn == null) {
+            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
+            return;
+        }
 
-	    componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
-	    instructionColumn.setCellValueFactory(new PropertyValueFactory<>("instruction"));
+        // Set up the TableColumn cell value factories.
+        componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
+        instructionColumn.setCellValueFactory(new PropertyValueFactory<>("instruction"));
 
-	    ObservableList<Components> componentList = FXCollections.observableArrayList(
-	        new Components("PC"),
-	        new Components("MAR"),
-	        new Components("MBR"),
-	        new Components("IR"),
-	        new Components("IBR"),
-	        new Components("AC")
-	    );
+        // Clear and populate the field-level ObservableList so it's not empty.
+        Components.clear();
+        Components.addAll(
+            new Components("PC"),
+            new Components("MAR"),
+            new Components("MBR"),
+            new Components("IR"),
+            new Components("IBR"),
+            new Components("AC")
+        );
 
-	    cpuTableView.setItems(componentList);
-	    startInstruction();
+        // Set the TableView items using the field.
+        cpuTableView.setItems(Components);
 
-	}
-
+        // Start instruction, now that the list has data.
+        startInstruction();
+        btnStart.setText("Next");
+        btnStart.setOnAction(event -> testmethod());
+    }
+    void testmethod() {
+    	System.out.println("Oh yeah baby new method");
+    }
 	private void setButtonActions() {
 		for (int i = 0; i < Components.size() - 1; i++) {
 			Components current = Components.get(i);
