@@ -85,6 +85,7 @@ public class Controller {
 		}
 		toggleButtons(0);
 		btnStart.setOnAction(event -> initialize2());  //Resets onAction method of btnStart, assumes animation has started, will fix
+		btnStart.setText("Start");
 		infoContainer.getChildren().clear();
 		IASComponentClass.updateLabels(-1, titleLabel, infoLabel, infoContainer);
 	}
