@@ -47,7 +47,7 @@ public class IASComponentClass{
 	    	infoLabel.setText("Holds/Keeps track of the next instruction to be executed. "
 					+ "Keeps track of where the program is in memory. "
 					+ "After each instruction of a program, it updates to point to the next instruction in sequence.");
-			break;
+			break; 
 		case 7:
 	    	titleLabel.setText("Memory Address Register\n\n");
 	    	infoLabel.setText("Stores the memory address where data or an instruction is located. "

@@ -24,7 +24,6 @@ import java.awt.image.ComponentSampleModel;
 import java.util.List;
 
 public class Controller {
-	int step = 0; //Variable used to be used as parameter for a method. 
 	@FXML
 	private VBox infoContainer; //"Container" inside the GUI. Will hold labels/information for components, as well as for ias demo.
 	@FXML
@@ -32,7 +31,7 @@ public class Controller {
 	@FXML
 	private Label infoLabel = new Label(""); //String, used for storing and displaying information for IAS components. Also put into infoContainer
 	@FXML
-	private Button btnStart, btnAC, btnMQ, btnALC, btnMBR, btnIO, btnPC, btnIBR, btnMAR, btnIR, btnCC, btnMM;
+	private Button btnStart, btnAC, btnMQ, btnALC, btnMBR, btnIO, btnPC, btnIBR, btnMAR, btnIR, btnCC, btnMM; //Names for all the buttons
 
 	// For Component Visual Table
 	@FXML private TableView<Components> cpuTableView;
@@ -43,20 +42,20 @@ public class Controller {
 	private ObservableList<Components> Components = FXCollections.observableArrayList();
 	
 	//@FXML
-	private void toggleButtons(int i) { //If i == 1, then disable all buttons
-		boolean disable = false;
-		if (i == 1) {disable = true;}
-	    btnAC.setDisable(disable);
-	    btnMQ.setDisable(disable);
-	    btnALC.setDisable(disable);
-	    btnMBR.setDisable(disable);
-	    btnIO.setDisable(disable);
-	    btnPC.setDisable(disable);
-	    btnIBR.setDisable(disable);
-	    btnMAR.setDisable(disable);
-	    btnIR.setDisable(disable);
-	    btnCC.setDisable(disable);
-	    btnMM.setDisable(disable);
+	private void toggleButtons(boolean t) { //If argument is false, disable buttons, true enable
+		boolean toggle = true;//Extra boolean used for clarity when calling functions. So toggleButton(true) enables instead of toggleButton(false)
+		if (t) {toggle = false;}
+	    btnAC.setDisable(toggle);
+	    btnMQ.setDisable(toggle);
+	    btnALC.setDisable(toggle);
+	    btnMBR.setDisable(toggle);
+	    btnIO.setDisable(toggle);
+	    btnPC.setDisable(toggle);
+	    btnIBR.setDisable(toggle);
+	    btnMAR.setDisable(toggle);
+	    btnIR.setDisable(toggle);
+	    btnCC.setDisable(toggle);
+	    btnMM.setDisable(toggle);
 	}
 	
 //	@FXML 
@@ -79,11 +78,11 @@ public class Controller {
 	 */
 	@FXML
 	void updICClear() {
-		if (animationInProgress) {
-			animationInProgress = false;
-			System.out.println("Animation Killed Prematurely");
-		}
-		toggleButtons(0);
+//		if (animationInProgress) {
+//			animationInProgress = false;
+//			System.out.println("Animation Killed Prematurely");
+//		}
+		toggleButtons(true);
 		btnStart.setOnAction(event -> initialize2());  //Resets onAction method of btnStart, assumes animation has started, will fix
 		btnStart.setText("Start");
 		infoContainer.getChildren().clear();
@@ -117,7 +116,7 @@ public class Controller {
     @FXML
     void handleButtonAction3() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(3, titleLabel, infoLabel, infoContainer);
-    }
+    } 
     @FXML
     void handleButtonAction4() { //For info, refer to comments on handleButtonAction() above
     	IASComponentClass.updateLabels(4, titleLabel, infoLabel, infoContainer);
@@ -179,18 +178,21 @@ public class Controller {
         // Start instruction, now that the list has data.
         startInstruction();
         btnStart.setText("Next");
-        btnStart.setOnAction(event -> testmethod());
-        toggleButtons(1);
+        btnStart.setOnAction(event -> playAnimation());
+        toggleButtons(false);
     }
     
     
     
     
     //IMPORTANT
-    private boolean animationInProgress = false;
-    void testmethod() {
-    	//System.out.println("Oh yeah baby new method");
-    	animationInProgress = true;
+	int step = 1; //Variable used to be used as parameter for a method. Calls for specific step in animation sequence
+	@FXML
+	private TextArea movingTxt;
+    void playAnimation() {
+    	AnimationClass.playAnimation(step, movingTxt);
+    	System.out.println(step);
+    	step ++;
     	
     }
     
