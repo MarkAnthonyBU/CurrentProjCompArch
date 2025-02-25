@@ -17,7 +17,6 @@ public class Components {
     }
 
     public Components(String pc) {
-//        this("component", "-");
     	this(pc, "-");
     }
 
@@ -27,7 +26,7 @@ public class Components {
     }
 
     public void setComponent(String value) {
-        componentName.set(value);
+        componentName.set(value); 
 
     }
 

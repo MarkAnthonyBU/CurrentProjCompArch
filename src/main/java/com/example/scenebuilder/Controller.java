@@ -32,6 +32,8 @@ public class Controller {
 	private Label infoLabel = new Label(""); //String, used for storing and displaying information for IAS components. Also put into infoContainer
 	@FXML
 	private Button btnStart, btnAC, btnMQ, btnALC, btnMBR, btnIO, btnPC, btnIBR, btnMAR, btnIR, btnCC, btnMM; //Names for all the buttons
+	
+	//private String[] originals = {};
 
 	// For Component Visual Table
 	@FXML private TableView<Components> cpuTableView;
@@ -57,31 +59,20 @@ public class Controller {
 	    btnCC.setDisable(toggle);
 	    btnMM.setDisable(toggle);
 	}
-	
-//	@FXML 
-//	void move() {
-//        Path path = new Path();
-//        path.getElements().add(new MoveTo(100, 200)); // Starting point
-//        path.getElements().add(new LineTo(400, 200)); // Destination
-//
-//        PathTransition pathTransition = new PathTransition();
-//        pathTransition.setNode(movingCircle);
-//        pathTransition.setDuration(Duration.seconds(3));
-//        pathTransition.setPath(path);
-//        pathTransition.setCycleCount(PathTransition.INDEFINITE);
-//        pathTransition.setAutoReverse(true);
-//
-//        pathTransition.play();
-//	}
 	/*
 	 * Resets labels in infoContainer. Calls on switch case "-1" which calls the default case.
 	 */
+	void resetBtnTxt() {
+		btnPC.setText("PC");
+		btnMAR.setText("MAR");
+		btnMBR.setText("MBR");
+		btnAC.setText("AC");
+	}
 	@FXML
 	void updICClear() {
-//		if (animationInProgress) {
-//			animationInProgress = false;
-//			System.out.println("Animation Killed Prematurely");
-//		}
+		step = 1;
+		resetMovingTxt();
+		resetBtnTxt();
 		toggleButtons(true);
 		btnStart.setOnAction(event -> initialize2());  //Resets onAction method of btnStart, assumes animation has started, will fix
 		btnStart.setText("Start");
@@ -189,12 +180,44 @@ public class Controller {
     //IMPORTANT
 	int step = 1; //Variable used to be used as parameter for a method. Calls for specific step in animation sequence
 	@FXML
-	private TextArea movingTxt;
+	private TextArea movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5;
+	//public TextArea movingTxt1, movingTxt2;
     void playAnimation() {
-    	AnimationClass.playAnimation(step, movingTxt);
+    	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5);
     	System.out.println(step);
+//    	if (step == 2) {
+//    		btnMAR.setText("MAR = 1");
+//    	}
+//    	else if (step == 7) {btnMAR.setText("MAR = 500");}
+    	switch (step) {
+    	case 2:
+    		btnMAR.setText("MAR = 1"); break;
+    	case 7:
+    		btnMAR.setText("MAR = 500"); break;
+    	case 10:
+    		btnMBR.setText("MBR = 3"); break;
+    	case 12:
+    		btnAC.setText("AC = 3"); break;
+    	}
     	step ++;
     	
+    }
+    
+    void resetMovingTxt() {
+        // Reset translate values to zero so the node is at its original layout position.
+        movingTxt.setTranslateX(0);
+        movingTxt.setTranslateY(0);
+        movingTxt1.setTranslateX(0);
+        movingTxt1.setTranslateY(0);
+        movingTxt2.setTranslateX(0);
+        movingTxt2.setTranslateY(0);
+        movingTxt3.setTranslateX(0);
+        movingTxt3.setTranslateY(0);
+
+        movingTxt.setVisible(false);
+        movingTxt1.setVisible(false);
+        movingTxt2.setVisible(false);
+        movingTxt3.setVisible(false);
     }
     
     

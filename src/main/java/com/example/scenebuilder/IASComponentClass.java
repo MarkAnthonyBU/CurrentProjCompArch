@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 public class IASComponentClass{
 	public static void updateLabels(int i, Label titleLabel, Label infoLabel, VBox infoContainer) {
 		switch (i) { 
-		case 0:
+		case 0: 
 	    	titleLabel.setText("Accumulator Register\n\n");
 	    	infoLabel.setText("Temporarily holds operands and results from ALU operations. The"
 					+ " most significant 40 bits are stored here.");
