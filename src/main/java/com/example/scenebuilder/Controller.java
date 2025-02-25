@@ -179,6 +179,7 @@ public class Controller {
         startInstruction();
         btnStart.setText("Next");
         btnStart.setOnAction(event -> playAnimation());
+        btnPC.setText("PC = 1");
         toggleButtons(false);
     }
     
