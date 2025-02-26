@@ -198,6 +198,10 @@ public class Controller {
     		btnMBR.setText("MBR = 3"); break;
     	case 12:
     		btnAC.setText("AC = 3"); break;
+    	case 15: 
+    		btnMAR.setText("MAR = 501"); break;
+    	case 16:
+    		btnPC.setText("PC = 2");
     	}
     	step ++;
     	
@@ -213,11 +217,17 @@ public class Controller {
         movingTxt2.setTranslateY(0);
         movingTxt3.setTranslateX(0);
         movingTxt3.setTranslateY(0);
+        movingTxt4.setTranslateX(0);
+        movingTxt4.setTranslateY(0);
+        movingTxt5.setTranslateX(0);
+        movingTxt5.setTranslateY(0);
 
         movingTxt.setVisible(false);
         movingTxt1.setVisible(false);
         movingTxt2.setVisible(false);
         movingTxt3.setVisible(false);
+        movingTxt4.setVisible(false);
+        movingTxt5.setVisible(false);
     }
     
     

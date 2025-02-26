@@ -102,10 +102,51 @@ public class AnimationClass {
         	break;
         case 13:
         	t5.setText("ADD M(X)");
+        	t5.setVisible(true);
         	TranslateTransition ttD13 = createTranslateTransition(t5, Duration.seconds(0.5), 0, 75);
         	ttD13.setOnFinished(e -> t2.setVisible(false));
-        	SequentialTransition sequential13 = new SequentialTransition(ttD13); 
+        	TranslateTransition moveT2up = createTranslateTransition(t2, Duration.seconds(0.5), 0, -75);
+        	t2.setText("501");
+        	SequentialTransition sequential13 = new SequentialTransition(ttD13, moveT2up); 
         	sequential13.play();
+        	break;
+        case 14:
+        	t2.setVisible(true);
+        
+        	TranslateTransition ttD15 = createTranslateTransition(t2, Duration.seconds(0.5), 0, 30);
+        	TranslateTransition ttl15 = createTranslateTransition(t2, Duration.seconds(0.5), -175, 0);
+        	TranslateTransition ttD152 = createTranslateTransition(t2, Duration.seconds(0.5), 0, 45);
+        	ttD152.setOnFinished(e -> t2.setVisible(false));
+        	SequentialTransition sequential15 = new SequentialTransition(ttD15, ttl15,ttD152);
+        	sequential15.play();
+        	break;
+        case 17:
+            t2.setText("Address = 1");
+            t2.setVisible(true);
+            
+            // Create transitions using the helper method:
+            TranslateTransition ttDown17 = createTranslateTransition(t2, Duration.seconds(1), 0, 100); // move down
+            TranslateTransition ttRight17 = createTranslateTransition(t2, Duration.seconds(1), 450, 0); // move right
+            TranslateTransition ttUp17 = createTranslateTransition(t2, Duration.seconds(0.5), 0, -50);   // move up
+            
+            // When the final animation finishes, hide the text area:
+            ttUp17.setOnFinished(e -> t2.setText("4"));
+            
+            // Chain the transitions using SequentialTransition:
+            SequentialTransition sequential17 = new SequentialTransition(ttDown17, ttRight17, ttUp17);
+            sequential17.play();
+            break;
+        case 18:
+        	//Copy Step 8 copied 9 actually
+           	TranslateTransition ttU18 = createTranslateTransition(t3, Duration.seconds(0.5), 0, -100);
+        	TranslateTransition ttL18 = createTranslateTransition(t3, Duration.seconds(0.5), -175, 0);
+        	TranslateTransition ttU181 = createTranslateTransition(t3, Duration.seconds(0.5), 0, -130);
+        	TranslateTransition ttL181 = createTranslateTransition(t3, Duration.seconds(0.5), -185, 0);
+        	TranslateTransition ttU182 = createTranslateTransition(t3, Duration.seconds(1), 0, -20);
+        	
+        	//ttU92.setOnFinished(e -> t3.setVisible(false));
+        	SequentialTransition sequential18 = new SequentialTransition(ttU18, ttL18, ttU181, ttL181, ttU182); 
+        	sequential18.play();
         	break;
 		}
 	}
