@@ -180,10 +180,10 @@ public class Controller {
     //IMPORTANT
 	int step = 1; //Variable used to be used as parameter for a method. Calls for specific step in animation sequence
 	@FXML
-	private TextArea movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5;
+	private TextArea movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6;
 	//public TextArea movingTxt1, movingTxt2;
     void playAnimation() {
-    	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5);
+    	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6);
     	System.out.println(step);
 //    	if (step == 2) {
 //    		btnMAR.setText("MAR = 1");
@@ -201,7 +201,19 @@ public class Controller {
     	case 15: 
     		btnMAR.setText("MAR = 501"); break;
     	case 16:
-    		btnPC.setText("PC = 2");
+    		btnPC.setText("PC = 2"); break;
+    	case 19:
+    		btnMBR.setText("MBR = 4"); break;
+    	case 20:
+    		btnAC.setText("AC = 7"); break;
+    	case 22:
+    		btnMAR.setText("MAR = 2"); break;
+    	case 27:
+    		btnMAR.setText("MAR = 500"); break;
+    	case 29:
+    		btnMBR.setText("MBR = 7"); break;
+    	case 31:
+    		movingTxt1.setText("Number 7 Stored in memory address 500");
     	}
     	step ++;
     	
@@ -221,6 +233,8 @@ public class Controller {
         movingTxt4.setTranslateY(0);
         movingTxt5.setTranslateX(0);
         movingTxt5.setTranslateY(0);
+        movingTxt6.setTranslateX(0);
+        movingTxt6.setTranslateY(0);
 
         movingTxt.setVisible(false);
         movingTxt1.setVisible(false);
@@ -228,6 +242,7 @@ public class Controller {
         movingTxt3.setVisible(false);
         movingTxt4.setVisible(false);
         movingTxt5.setVisible(false);
+        movingTxt6.setVisible(false);
     }
     
     
