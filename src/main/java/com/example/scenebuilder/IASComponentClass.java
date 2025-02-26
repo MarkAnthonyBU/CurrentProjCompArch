@@ -70,6 +70,13 @@ public class IASComponentClass{
 	    	infoLabel.setText("Retrieves and stores the first instruction (Bits 0-19) from a 40-bit word retrieved from the MBR. "
 					+ "The IR holds the current instruction being executed.");
 			break;
+		case 11:
+			titleLabel.setText("Memory\n\n");
+			infoLabel.setText("1. LOAD M(X) 500, ADD M(X) 501\n"
+					+ "2. STOR M(X) 500, Other Ins\n\n"
+					+ "500. 3\n"
+					+ "501. 4");
+			break;
 		default: 
 			titleLabel.setText("The IAS Computer\n\n");
 			infoLabel.setText("Click a button to learn about its functions");

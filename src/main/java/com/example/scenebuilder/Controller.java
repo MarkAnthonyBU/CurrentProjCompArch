@@ -142,7 +142,7 @@ public class Controller {
     public void initialize2() {
 //        System.out.println("Component Column: " + componentColumn);
 //        System.out.println("Instruction Column: " + instructionColumn);
-
+        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
         if (componentColumn == null || instructionColumn == null) {
             System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
             return;
@@ -288,28 +288,6 @@ public class Controller {
 		}
 
 		cpuTableView.refresh();
-	}
-	@FXML
-	private Circle myCircle;
-	private double x;
-	private double y;
-	@FXML
-	private TextArea myTextArea;
-
-
-	public void start(ActionEvent e) {
-		double initialY = myTextArea.getLayoutY();  // Use getLayoutY() instead of getCenterY()
-
-		// Create a TranslateTransition to animate the TextArea's movement
-		TranslateTransition translate = new TranslateTransition();
-		translate.setNode(myTextArea); // Set the TextArea as the node to animate
-		translate.setDuration(Duration.seconds(3)); // Set animation duration to 3 seconds
-		translate.setCycleCount(1); // Run it only once
-		translate.setByY(250); // Move 250 units down on the Y-axis
-		translate.setAutoReverse(false); // Do not reverse after moving down
-
-		// Start the translation animation
-		translate.play();
 	}
 }
 

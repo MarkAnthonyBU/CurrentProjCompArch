@@ -23,7 +23,7 @@
             <Image url="@UniversityLogoTrans.png" />
          </image>
       </ImageView>
-      <VBox fx:id="infoContainer" alignment="CENTER" layoutX="14.0" layoutY="58.0" prefHeight="350.0" prefWidth="200.0" style="-fx-border-width: 1; -fx-border-color: BLACK; -fx-background-color: #faac9a;">
+      <VBox fx:id="infoContainer" alignment="CENTER" layoutX="14.0" layoutY="15.0" prefHeight="393.0" prefWidth="200.0" style="-fx-border-width: 1; -fx-border-color: BLACK; -fx-background-color: #faac9a;">
          <effect>
             <DropShadow />
          </effect>
@@ -209,7 +209,6 @@
             <Font name="Arial Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="start" layoutX="56.0" layoutY="21.0" mnemonicParsing="false" onAction="#start" text="Animation Test" />
       <TextArea fx:id="myTextArea" layoutX="267.0" layoutY="186.0" prefHeight="25.0" prefWidth="57.0" text="test" />
       <TextArea fx:id="movingTxt" layoutX="304.0" layoutY="418.0" prefHeight="45.0" prefWidth="82.0" visible="false">
          <font>
