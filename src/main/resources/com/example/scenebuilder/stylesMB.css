@@ -19,3 +19,20 @@
     -fx-text-fill: -fx-text-base-color; /* Ensures text stays original color (black) */
     -fx-background-color: derive(-fx-base, -5%); /* Grays out background color so user has idea button is disabled */
 }
+.text-area{
+    -fx-background-color: transparent; /* Makes background fully transparent */
+    -fx-background-fill: black;
+    -fx-font-size: 15;
+    -fx-background-insets: 0; /* Ensures no extra padding/background effect */
+    -fx-background-radius: 0; /* Removes rounded corners */
+    -fx-border-color: transparent; /* Makes the border invisible */
+    -fx-border-width: 0; /* Ensures no visible border */
+    -fx-pref-width: 300px;
+    -fx-padding: 0px;
+}
+.text-area .content {
+    -fx-background-color: transparent; /* Makes the inner part transparent */
+}
+.text-area .viewport {
+    -fx-background-color: transparent; /* Ensures no white background */
+}

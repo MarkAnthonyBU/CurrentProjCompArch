@@ -1,9 +1,12 @@
 package com.example.scenebuilder;
 
+import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 /*
@@ -14,7 +17,7 @@ public class AnimationClass {
 	public static void playAnimation(int i, TextArea t, TextArea t1, TextArea t2, TextArea t3, TextArea t4, TextArea t5, TextArea t6) {
 		switch (i) {
         case 1:
-            t.setText("MAR <- PC");
+            t.setText("MAR <- PC"); //adjustTextAreaSize(t);
             t.setVisible(true);
             
             TranslateTransition translate1 = createTranslateTransition(t, Duration.seconds(1), 0, 74);
@@ -24,7 +27,7 @@ public class AnimationClass {
             break;
             
         case 3:
-            t.setText("Address = 1");
+            t.setText("Address = 1"); //adjustTextAreaSize(t);
             t.setVisible(true);
             
             // Create transitions using the helper method:
@@ -40,7 +43,7 @@ public class AnimationClass {
             sequential.play();
             break;
         case 4:
-        	t.setText("LOAD M(X) 500, ADD M(X) 501");
+        	t.setText("LOAD M(X) 500, \nADD M(X) 501");
         	t.setVisible(true);
         	TranslateTransition ttUp3 = createTranslateTransition(t, Duration.seconds(0.5), 0, -100);
         	TranslateTransition ttLeft3 = createTranslateTransition(t, Duration.seconds(0.5), -175, 0);
@@ -169,7 +172,7 @@ public class AnimationClass {
             TranslateTransition ttU23 = createTranslateTransition(t, Duration.seconds(0.5), 0, -50);   // move up
             
             // When the final animation finishes, hide the text area:
-            ttU23.setOnFinished(e -> t.setText("STOR M(X), Other ins"));
+            ttU23.setOnFinished(e -> t.setText("STOR M(X), \nOther ins"));
             
             // Chain the transitions using SequentialTransition:
             SequentialTransition sequential23 = new SequentialTransition(ttD23, ttR23, ttU23);
@@ -222,19 +225,49 @@ public class AnimationClass {
         case 30:
         	t1.setText("Address = 500");
         	t1.setVisible(true);
-        	TranslateTransition tt1Down30 = createTranslateTransition(t1, Duration.seconds(1), 0, 100); // move down
-            TranslateTransition tt1Right30 = createTranslateTransition(t1, Duration.seconds(1), 450, 0); // move right
-            TranslateTransition tt1Up30 = createTranslateTransition(t1, Duration.seconds(0.5), 0, -50);   // move up
-            
-            TranslateTransition tt6D30 = createTranslateTransition(t6, Duration.seconds(0.75), 0, 35);
-            TranslateTransition tt6R30 = createTranslateTransition(t6, Duration.seconds(0.75), 170, 0);
-            TranslateTransition tt6D30a = createTranslateTransition(t6, Duration.seconds(0.75), 0, 150);
-            TranslateTransition tt6R30a = createTranslateTransition(t6, Duration.seconds(0.75), 185, 0);
-            TranslateTransition tt6D30b = createTranslateTransition(t6, Duration.seconds(0.75), 0, 70);
-            tt6D30b.setOnFinished(e -> t6.setVisible(false));
-            SequentialTransition sequential30 = new SequentialTransition(tt1Down30, tt1Right30, tt1Up30, tt6D30, tt6R30, tt6D30a, tt6R30a, tt6D30b);
-            sequential30.play(); break;
+        	t6.setVisible(true);
+
+        	// First set of parallel animations for t1 and t6
+        	ParallelTransition parallel1 = new ParallelTransition(
+        	    createTranslateTransition(t1, Duration.seconds(1), 0, 100), // Move t1 down
+        	    createTranslateTransition(t6, Duration.seconds(0.75), 0, 35) // Move t6 down
+        	);
+
+        	// Second set: move t1 right and t6 right
+        	ParallelTransition parallel2 = new ParallelTransition(
+        	    createTranslateTransition(t1, Duration.seconds(1), 450, 0), // Move t1 right
+        	    createTranslateTransition(t6, Duration.seconds(0.75), 170, 0) // Move t6 right
+        	);
+
+        	// Third set: move t1 up and t6 further down
+        	ParallelTransition parallel3 = new ParallelTransition(
+        	    createTranslateTransition(t1, Duration.seconds(0.5), 0, -50),  // Move t1 up
+        	    createTranslateTransition(t6, Duration.seconds(0.75), 0, 150) // Move t6 down further
+        	);
+
+        	// Fourth set: move t6 right
+        	TranslateTransition tt6R30a = createTranslateTransition(t6, Duration.seconds(0.75), 185, 0);
+
+        	// Final movement for t6 down, then hide it
+        	TranslateTransition tt6D30b = createTranslateTransition(t6, Duration.seconds(0.75), 0, 70);
+        	tt6D30b.setOnFinished(e -> t6.setVisible(false));
+
+        	// Play the transitions sequentially where needed
+        	SequentialTransition finalAnimation = new SequentialTransition(
+        	    parallel1, parallel2, parallel3, tt6R30a, tt6D30b
+        	);
+
+        	finalAnimation.play();
+        	break;
+        case 31:
+        	TranslateTransition tt1Up31 = createTranslateTransition(t1, Duration.seconds(0.5), 0, -50);
+        	TranslateTransition tt1L = createTranslateTransition(t1, Duration.seconds(0.5), -50, 0);
+        	//SequentialTransition sequential31 = new SequentialTransition(tt1Up31,tt1L);
+        	tt1Up31.play(); tt1L.play();
+        	//sequential31.play(); 
+        	break;
 		}
+
 			
 	}
 	public static void changeBtnText(Button b, String newText) {

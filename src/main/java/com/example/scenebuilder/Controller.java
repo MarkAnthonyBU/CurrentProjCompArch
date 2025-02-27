@@ -17,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
 import javafx.scene.shape.Path;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.animation.PathTransition;
 import javafx.util.Duration;
 
@@ -83,6 +85,9 @@ public class Controller {
 	public void initialize() {
 		titleLabel.getStyleClass().add("title-label");
 		infoLabel.getStyleClass().add("general-label");
+//		movingTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+//	        adjustTextAreaSize(movingTxt);
+//	    });
 		updICClear();
 		//initialize2();
 	}
@@ -185,10 +190,6 @@ public class Controller {
     void playAnimation() {
     	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6);
     	System.out.println(step);
-//    	if (step == 2) {
-//    		btnMAR.setText("MAR = 1");
-//    	}
-//    	else if (step == 7) {btnMAR.setText("MAR = 500");}
     	switch (step) {
     	case 2:
     		btnMAR.setText("MAR = 1"); break;
@@ -213,7 +214,7 @@ public class Controller {
     	case 29:
     		btnMBR.setText("MBR = 7"); break;
     	case 31:
-    		movingTxt1.setText("Number 7 Stored in memory address 500");
+    		movingTxt1.setText("Number 7 Stored in \nmemory address 500"); break;
     	}
     	step ++;
     	
@@ -289,6 +290,22 @@ public class Controller {
 
 		cpuTableView.refresh();
 	}
+//	private static void adjustTextAreaSize(TextArea textArea) {
+//	    // Create a Text object to measure the text
+//	    Text text = new Text(textArea.getText());
+//	    text.setFont(textArea.getFont()); // Use the same font as the TextArea
+//
+//	    // Use a TextFlow to get actual width
+//	    TextFlow textFlow = new TextFlow(text);
+//	    textFlow.setMaxWidth(textArea.getPrefWidth()); // Set max width of TextFlow
+//
+//	    double computedHeight = textFlow.prefHeight(-1) + 10; // Add padding
+//	    double computedWidth = textFlow.prefWidth(-1) + 10;
+//
+//	    // Apply computed size
+//	    textArea.setPrefHeight(computedHeight);
+//	    textArea.setPrefWidth(computedWidth);
+//	}
 }
 
 
