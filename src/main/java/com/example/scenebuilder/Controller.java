@@ -182,9 +182,28 @@ public class Controller {
 	@FXML
 	private TextArea movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6;
 	//public TextArea movingTxt1, movingTxt2;
+
+	private boolean isAnimationRunning = false;  /**This is responsible for user to stop spamming nex*/
+
     void playAnimation() {
     	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6);
     	System.out.println(step);
+		if (isAnimationRunning) {
+			return;
+		}
+
+		isAnimationRunning = true;
+		btnStart.setDisable(true);
+
+		TranslateTransition transition = new TranslateTransition(Duration.seconds(1), movingTxt);
+//		transition.setByX(100);
+		transition.setOnFinished(event -> {
+			// Animation finished; re-enable the button and reset the flag.
+			isAnimationRunning = false;
+			btnStart.setDisable(false);
+		});
+		transition.play();
+
 //    	if (step == 2) {
 //    		btnMAR.setText("MAR = 1");
 //    	}
