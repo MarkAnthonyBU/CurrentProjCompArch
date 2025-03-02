@@ -41,7 +41,7 @@ public class Controller {
 	@FXML private TableColumn<Components, String> instructionColumn;
 	@FXML private TableColumn<Components, Button> actionColumn;
 
-	private ObservableList<Components> Components = FXCollections.observableArrayList();
+	private ObservableList<Components> ComponentsU = FXCollections.observableArrayList();
 	
 	//@FXML
 	private void toggleButtons(boolean t) { //If argument is false, disable buttons, true enable
@@ -81,6 +81,7 @@ public class Controller {
 	}
 	@FXML
 	public void initialize() {
+		initialize0();
 		titleLabel.getStyleClass().add("title-label");
 		infoLabel.getStyleClass().add("general-label");
 		updICClear();
@@ -139,22 +140,13 @@ public class Controller {
     }
 
     @FXML
-    public void initialize2() {
-//        System.out.println("Component Column: " + componentColumn);
-//        System.out.println("Instruction Column: " + instructionColumn);
-        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
-        if (componentColumn == null || instructionColumn == null) {
-            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
-            return;
-        }
-
-        // Set up the TableColumn cell value factories.
+    public void initialize0() {
         componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
         instructionColumn.setCellValueFactory(new PropertyValueFactory<>("instruction"));
 
         // Clear and populate the field-level ObservableList so it's not empty.
-        Components.clear();
-        Components.addAll(
+        ComponentsU.clear();
+        ComponentsU.addAll(
             new Components("PC"),
             new Components("MAR"),
             new Components("MBR"),
@@ -164,10 +156,23 @@ public class Controller {
         );
 
         // Set the TableView items using the field.
-        cpuTableView.setItems(Components);
+        cpuTableView.setItems(ComponentsU);
+    }
+    @FXML
+    public void initialize2() {
+//        System.out.println("Component Column: " + componentColumn);
+//        System.out.println("Instruction Column: " + instructionColumn);
+//        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
+//        if (componentColumn == null || instructionColumn == null) {
+//            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
+//            return;
+//        }
+
+        // Set up the TableColumn cell value factories.
+
 
         // Start instruction, now that the list has data.
-        startInstruction();
+        //startInstruction();
         btnStart.setText("Next");
         btnStart.setOnAction(event -> playAnimation());
         btnPC.setText("PC = 1");
@@ -187,6 +192,9 @@ public class Controller {
 
     void playAnimation() {
     	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6);
+    	//
+    	ComponentsU.get(0).updTable(step, ComponentsU, cpuTableView);
+    	//
     	System.out.println(step);
 		if (isAnimationRunning) {
 			return;
@@ -268,16 +276,16 @@ public class Controller {
     
     
 	private void setButtonActions() {
-		for (int i = 0; i < Components.size() - 1; i++) {
-			Components current = Components.get(i);
-			Components next = Components.get(i+1);
+		for (int i = 0; i < ComponentsU.size() - 1; i++) {
+			Components current = ComponentsU.get(i);
+			Components next = ComponentsU.get(i+1);
 
 			current.getNextButton().setOnAction(event ->
 					{moveToNextStage(current, next); });
 
 		}
 
-		Components.get(0).enableButton();
+		ComponentsU.get(0).enableButton();
 
 	}
 
@@ -290,8 +298,8 @@ public class Controller {
 	}
 
 	private void startInstruction() {
-		Components pc = Components.get(0);
-		pc.setInstruction("ADD C, A, B");
+		Components pc = ComponentsU.get(0);
+		//pc.setInstruction("ADD C, A, B");
 		pc.enableButton();
 		cpuTableView.refresh();
 
