@@ -83,6 +83,7 @@ public class Controller {
 	}
 	@FXML
 	public void initialize() {
+		initialize0();
 		titleLabel.getStyleClass().add("title-label");
 		infoLabel.getStyleClass().add("general-label");
 		updICClear();
@@ -141,14 +142,11 @@ public class Controller {
     }
 
     @FXML
-    public void initialize2() {
-//        System.out.println("Component Column: " + componentColumn);
-//        System.out.println("Instruction Column: " + instructionColumn);
-        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
-        if (componentColumn == null || instructionColumn == null) {
-            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
-            return;
-        }
+    public void initialize0() {
+//        if (componentColumn == null || instructionColumn == null) {
+//            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
+//            return;
+//        }
 
         // Set up the TableColumn cell value factories.
         componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
@@ -167,6 +165,12 @@ public class Controller {
 
         // Set the TableView items using the field.
         cpuTableView.setItems(Components);
+    }
+    @FXML
+    public void initialize2() {
+//        System.out.println("Component Column: " + componentColumn);
+//        System.out.println("Instruction Column: " + instructionColumn);
+        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
 
         // Start instruction, now that the list has data.
         startInstruction();
@@ -296,7 +300,7 @@ public class Controller {
 
 	private void startInstruction() {
 		Components pc = Components.get(0);
-		pc.setInstruction("ADD C, A, B");
+//		pc.setInstruction("ADD C, A, B");
 		pc.enableButton();
 		cpuTableView.refresh();
 

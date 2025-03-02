@@ -1,7 +1,9 @@
 package com.example.scenebuilder;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 
 public class Components {
     private final SimpleStringProperty componentName; 
