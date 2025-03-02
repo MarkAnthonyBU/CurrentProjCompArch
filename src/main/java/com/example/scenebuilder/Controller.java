@@ -23,6 +23,8 @@ import javafx.util.Duration;
 import java.awt.image.ComponentSampleModel;
 import java.util.List;
 
+import static com.example.scenebuilder.Components.updTable;
+
 public class Controller {
 	@FXML
 	private VBox infoContainer; //"Container" inside the GUI. Will hold labels/information for components, as well as for ias demo.
@@ -41,8 +43,8 @@ public class Controller {
 	@FXML private TableColumn<Components, String> instructionColumn;
 	@FXML private TableColumn<Components, Button> actionColumn;
 
-	private ObservableList<Components> ComponentsU = FXCollections.observableArrayList();
-	
+	private ObservableList<Components> Components = FXCollections.observableArrayList();
+
 	//@FXML
 	private void toggleButtons(boolean t) { //If argument is false, disable buttons, true enable
 		boolean toggle = true;//Extra boolean used for clarity when calling functions. So toggleButton(true) enables instead of toggleButton(false)
@@ -81,7 +83,6 @@ public class Controller {
 	}
 	@FXML
 	public void initialize() {
-		initialize0();
 		titleLabel.getStyleClass().add("title-label");
 		infoLabel.getStyleClass().add("general-label");
 		updICClear();
@@ -140,13 +141,22 @@ public class Controller {
     }
 
     @FXML
-    public void initialize0() {
+    public void initialize2() {
+//        System.out.println("Component Column: " + componentColumn);
+//        System.out.println("Instruction Column: " + instructionColumn);
+        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
+        if (componentColumn == null || instructionColumn == null) {
+            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
+            return;
+        }
+
+        // Set up the TableColumn cell value factories.
         componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
         instructionColumn.setCellValueFactory(new PropertyValueFactory<>("instruction"));
 
         // Clear and populate the field-level ObservableList so it's not empty.
-        ComponentsU.clear();
-        ComponentsU.addAll(
+        Components.clear();
+        Components.addAll(
             new Components("PC"),
             new Components("MAR"),
             new Components("MBR"),
@@ -156,23 +166,10 @@ public class Controller {
         );
 
         // Set the TableView items using the field.
-        cpuTableView.setItems(ComponentsU);
-    }
-    @FXML
-    public void initialize2() {
-//        System.out.println("Component Column: " + componentColumn);
-//        System.out.println("Instruction Column: " + instructionColumn);
-//        IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
-//        if (componentColumn == null || instructionColumn == null) {
-//            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
-//            return;
-//        }
-
-        // Set up the TableColumn cell value factories.
-
+        cpuTableView.setItems(Components);
 
         // Start instruction, now that the list has data.
-        //startInstruction();
+        startInstruction();
         btnStart.setText("Next");
         btnStart.setOnAction(event -> playAnimation());
         btnPC.setText("PC = 1");
@@ -192,9 +189,6 @@ public class Controller {
 
     void playAnimation() {
     	AnimationClass.playAnimation(step, movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6);
-    	//
-    	ComponentsU.get(0).updTable(step, ComponentsU, cpuTableView);
-    	//
     	System.out.println(step);
 		if (isAnimationRunning) {
 			return;
@@ -211,6 +205,8 @@ public class Controller {
 			btnStart.setDisable(false);
 		});
 		transition.play();
+
+		updTable(step, Components, cpuTableView); /**Updates table */
 
 //    	if (step == 2) {
 //    		btnMAR.setText("MAR = 1");
@@ -241,6 +237,7 @@ public class Controller {
     		btnMBR.setText("MBR = 7"); break;
     	case 31:
     		movingTxt1.setText("Number 7 Stored in memory address 500");
+			break;
     	}
     	step ++;
     	
@@ -276,16 +273,16 @@ public class Controller {
     
     
 	private void setButtonActions() {
-		for (int i = 0; i < ComponentsU.size() - 1; i++) {
-			Components current = ComponentsU.get(i);
-			Components next = ComponentsU.get(i+1);
+		for (int i = 0; i < Components.size() - 1; i++) {
+			Components current = Components.get(i);
+			Components next = Components.get(i+1);
 
 			current.getNextButton().setOnAction(event ->
 					{moveToNextStage(current, next); });
 
 		}
 
-		ComponentsU.get(0).enableButton();
+		Components.get(0).enableButton();
 
 	}
 
@@ -298,8 +295,8 @@ public class Controller {
 	}
 
 	private void startInstruction() {
-		Components pc = ComponentsU.get(0);
-		//pc.setInstruction("ADD C, A, B");
+		Components pc = Components.get(0);
+		pc.setInstruction("ADD C, A, B");
 		pc.enableButton();
 		cpuTableView.refresh();
 
@@ -317,6 +314,4 @@ public class Controller {
 		cpuTableView.refresh();
 	}
 }
-
-
 
