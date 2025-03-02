@@ -54,5 +54,28 @@ public class Components {
         nextButton.setDisable(true
         );
     }
+ public static void updTable(int step, ObservableList<Components> tableComps, TableView<Components> tableView) {
+        switch (step) {
+            case 1:
+                tableComps.get(0).setInstruction("1");
+                break;
+            case 3:
+                tableComps.get(1).setInstruction("MAR Input here");
+                break;
+            case 5:
+                tableComps.get(2).setInstruction("MBR Input here");
+                break;
 
+            case 7:
+                tableComps.get(3).setInstruction("IR Input here");
+                break;
+            case 9:
+                tableComps.get(4).setInstruction("IBR Input here");
+                break;
+            case 11:
+                tableComps.get(5).setInstruction("AC Input here");
+                break;
+        }
+        tableView.refresh();
+    }
 }
