@@ -1,5 +1,6 @@
 package com.example.scenebuilder;
 
+import javafx.animation.ParallelTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.control.Button;
@@ -28,8 +29,8 @@ public class AnimationClass {
             t.setVisible(true);
             
             // Create transitions using the helper method:
-            TranslateTransition ttDown = createTranslateTransition(t, Duration.seconds(1), 0, 100); // move down
-            TranslateTransition ttRight = createTranslateTransition(t, Duration.seconds(1), 450, 0); // move right
+            TranslateTransition ttDown = createTranslateTransition(t, Duration.seconds(0.5), 0, 100); // move down
+            TranslateTransition ttRight = createTranslateTransition(t, Duration.seconds(0.5), 450, 0); // move right
             TranslateTransition ttUp = createTranslateTransition(t, Duration.seconds(0.5), 0, -50);   // move up
             
             // When the final animation finishes, hide the text area:
@@ -40,41 +41,42 @@ public class AnimationClass {
             sequential.play();
             break;
         case 4:
-        	t.setText("LOAD M(X) 500, ADD M(X) 501");
+        	t.setText("LOAD M(X) \n500, ADD M(X)\n 501"); t.setStyle("-fx-font-size: 11.5");
         	t.setVisible(true);
         	TranslateTransition ttUp3 = createTranslateTransition(t, Duration.seconds(0.5), 0, -100);
         	TranslateTransition ttLeft3 = createTranslateTransition(t, Duration.seconds(0.5), -175, 0);
         	TranslateTransition ttUp31 = createTranslateTransition(t, Duration.seconds(0.5), 0, -130);
         	TranslateTransition ttLeft31 = createTranslateTransition(t, Duration.seconds(0.5), -185, 0);
-        	TranslateTransition ttUp32 = createTranslateTransition(t, Duration.seconds(1), 0, -20);
+        	TranslateTransition ttUp32 = createTranslateTransition(t, Duration.seconds(0.5), 0, -20);
         	
         	//ttUp32.setOnFinished(e -> t.setVisible(false));
         	SequentialTransition sequential3 = new SequentialTransition(ttUp3, ttLeft3, ttUp31, ttLeft31, ttUp32);
         	sequential3.play();
         	break;
         case 5:
-        	t1.setText("ADD M(X) 501");
+        	t1.setText("ADD M(X)\n 501");
         	t2.setText("LOAD M(X)");
         	t1.setVisible(true); t2.setVisible(true);
         	TranslateTransition ttD4 = createTranslateTransition(t1, Duration.seconds(0.5), 0, 129);
         	TranslateTransition ttR4 = createTranslateTransition(t1, Duration.seconds(0.5), 81, 0);
-        	TranslateTransition ttD4t2 = createTranslateTransition(t2, Duration.seconds(0.75), 0, 205);
+        	TranslateTransition ttD4t2 = createTranslateTransition(t2, Duration.seconds(0.5), 0, 205);
         	TranslateTransition ttR4t2 = createTranslateTransition(t2, Duration.seconds(0.5), 81, 0);
         	ttR4t2.setOnFinished(e -> t.setVisible(false));
         	SequentialTransition sequential4 = new SequentialTransition(ttD4, ttR4, ttD4t2,ttR4t2);
         	sequential4.play();
         	break;
         case 6:
+        	t.setStyle("-fx-font-size: 13");
         	t3.setText("500"); t3.setVisible(true);
-        	TranslateTransition ttD5 = createTranslateTransition(t3, Duration.seconds(0.75), 0, 205);
+        	TranslateTransition ttD5 = createTranslateTransition(t3, Duration.seconds(0.5), 0, 205);
         	TranslateTransition ttL5 = createTranslateTransition(t3, Duration.seconds(0.5), -93, 0);
         	ttL5.setOnFinished(e -> t3.setVisible(false));
         	SequentialTransition sequential5 = new SequentialTransition(ttD5, ttL5); sequential5.play();
         	break;
         case 8:
         	t3.setText("add = 500"); t3.setVisible(true);
-        	 TranslateTransition ttD6 = createTranslateTransition(t3, Duration.seconds(1), 0, 100); 
-             TranslateTransition ttR6 = createTranslateTransition(t3, Duration.seconds(1), 450, 0); 
+        	 TranslateTransition ttD6 = createTranslateTransition(t3, Duration.seconds(0.5), 0, 100); 
+             TranslateTransition ttR6 = createTranslateTransition(t3, Duration.seconds(0.5), 450, 0); 
              TranslateTransition ttU6 = createTranslateTransition(t3, Duration.seconds(0.5), 0, -50);
              ttU6.setOnFinished(e -> t3.setText("3"));
              SequentialTransition sequential6 = new SequentialTransition(ttD6, ttR6, ttU6); sequential6.play();
@@ -84,7 +86,7 @@ public class AnimationClass {
         	TranslateTransition ttL9 = createTranslateTransition(t3, Duration.seconds(0.5), -175, 0);
         	TranslateTransition ttU91 = createTranslateTransition(t3, Duration.seconds(0.5), 0, -130);
         	TranslateTransition ttL91 = createTranslateTransition(t3, Duration.seconds(0.5), -185, 0);
-        	TranslateTransition ttU92 = createTranslateTransition(t3, Duration.seconds(1), 0, -20);
+        	TranslateTransition ttU92 = createTranslateTransition(t3, Duration.seconds(0.5), 0, -20);
         	
         	ttU92.setOnFinished(e -> t3.setVisible(false));
         	SequentialTransition sequential9 = new SequentialTransition(ttU9, ttL9, ttU91, ttL91, ttU92);
@@ -125,8 +127,8 @@ public class AnimationClass {
             t2.setVisible(true);
             
             // Create transitions using the helper method:
-            TranslateTransition ttDown17 = createTranslateTransition(t2, Duration.seconds(1), 0, 100); // move down
-            TranslateTransition ttRight17 = createTranslateTransition(t2, Duration.seconds(1), 450, 0); // move right
+            TranslateTransition ttDown17 = createTranslateTransition(t2, Duration.seconds(0.5), 0, 100); // move down
+            TranslateTransition ttRight17 = createTranslateTransition(t2, Duration.seconds(0.5), 450, 0); // move right
             TranslateTransition ttUp17 = createTranslateTransition(t2, Duration.seconds(0.5), 0, -50);   // move up
             
             // When the final animation finishes, hide the text area:
@@ -142,7 +144,7 @@ public class AnimationClass {
         	TranslateTransition ttL18 = createTranslateTransition(t2, Duration.seconds(0.5), -175, 0);
         	TranslateTransition ttU181 = createTranslateTransition(t2, Duration.seconds(0.5), 0, -130);
         	TranslateTransition ttL181 = createTranslateTransition(t2, Duration.seconds(0.5), -185, 0);
-        	TranslateTransition ttU182 = createTranslateTransition(t2, Duration.seconds(1), 0, -20);
+        	TranslateTransition ttU182 = createTranslateTransition(t2, Duration.seconds(0.5), 0, -20);
         	ttU182.setOnFinished(e -> t2.setVisible(false));
         	//ttU92.setOnFinished(e -> t3.setVisible(false));
         	SequentialTransition sequential18 = new SequentialTransition(ttU18, ttL18, ttU181, ttL181, ttU182); 
@@ -154,7 +156,7 @@ public class AnimationClass {
             t.setText("MAR <- PC");
             t.setVisible(true);
             
-            TranslateTransition translate21 = createTranslateTransition(t, Duration.seconds(1), 0, 74);
+            TranslateTransition translate21 = createTranslateTransition(t, Duration.seconds(0.5), 0, 74);
             
             translate21.setOnFinished(e -> t.setVisible(false));
             translate21.play();
@@ -164,12 +166,12 @@ public class AnimationClass {
             t.setVisible(true);
             
             // Create transitions using the helper method:
-            TranslateTransition ttD23 = createTranslateTransition(t, Duration.seconds(1), 0, 100); // move down
-            TranslateTransition ttR23 = createTranslateTransition(t, Duration.seconds(1), 450, 0); // move right
+            TranslateTransition ttD23 = createTranslateTransition(t, Duration.seconds(0.5), 0, 100); // move down
+            TranslateTransition ttR23 = createTranslateTransition(t, Duration.seconds(0.5), 450, 0); // move right
             TranslateTransition ttU23 = createTranslateTransition(t, Duration.seconds(0.5), 0, -50);   // move up
             
             // When the final animation finishes, hide the text area:
-            ttU23.setOnFinished(e -> t.setText("STOR M(X), Other ins"));
+            ttU23.setOnFinished(e -> t.setText("STOR M(X),\n Other ins"));
             
             // Chain the transitions using SequentialTransition:
             SequentialTransition sequential23 = new SequentialTransition(ttD23, ttR23, ttU23);
@@ -180,7 +182,7 @@ public class AnimationClass {
         	TranslateTransition ttL24 = createTranslateTransition(t, Duration.seconds(0.5), -175, 0);
         	TranslateTransition ttU24a = createTranslateTransition(t, Duration.seconds(0.5), 0, -130);
         	TranslateTransition ttL24a = createTranslateTransition(t, Duration.seconds(0.5), -185, 0);
-        	TranslateTransition ttU24b = createTranslateTransition(t, Duration.seconds(1), 0, -20);
+        	TranslateTransition ttU24b = createTranslateTransition(t, Duration.seconds(0.5), 0, -20);
         	ttU24b.setOnFinished(e -> t.setVisible(false));
         	//ttU92.setOnFinished(e -> t3.setVisible(false));
         	SequentialTransition sequential24 = new SequentialTransition(ttU24, ttL24, ttU24a, ttL24a, ttU24b); 
@@ -204,7 +206,7 @@ public class AnimationClass {
         	break;
         case 26:
         	t1.setText("500"); t1.setVisible(true);
-        	TranslateTransition ttD26 = createTranslateTransition(t1, Duration.seconds(0.75), 0, 205);
+        	TranslateTransition ttD26 = createTranslateTransition(t1, Duration.seconds(0.5), 0, 205);
         	TranslateTransition tt26 = createTranslateTransition(t1, Duration.seconds(0.5), -93, 0);
             SequentialTransition sequential26 = new SequentialTransition(ttD26, tt26); 
             tt26.setOnFinished(e -> t1.setVisible(false));
@@ -212,28 +214,49 @@ public class AnimationClass {
             break;
         case 28: 
         	t6.setText("7"); t6.setVisible(true);
-        	TranslateTransition ttD28 = createTranslateTransition(t6, Duration.seconds(0.75), 0, 75);
+        	TranslateTransition ttD28 = createTranslateTransition(t6, Duration.seconds(0.5), 0, 75);
         	TranslateTransition ttR28 = createTranslateTransition(t6, Duration.seconds(0.5), 81, 0);
-        	TranslateTransition ttD28a = createTranslateTransition(t6, Duration.seconds(0.75), 0, 75);
+        	TranslateTransition ttD28a = createTranslateTransition(t6, Duration.seconds(0.5), 0, 75);
         	
         	SequentialTransition sequential28 = new SequentialTransition(ttD28, ttR28, ttD28a);
         	sequential28.play();
         	break;
         case 30:
-        	t1.setText("Address = 500");
+        	t1.setText("Addr. = 500");
         	t1.setVisible(true);
-        	TranslateTransition tt1Down30 = createTranslateTransition(t1, Duration.seconds(1), 0, 100); // move down
-            TranslateTransition tt1Right30 = createTranslateTransition(t1, Duration.seconds(1), 450, 0); // move right
-            TranslateTransition tt1Up30 = createTranslateTransition(t1, Duration.seconds(0.5), 0, -50);   // move up
-            
-            TranslateTransition tt6D30 = createTranslateTransition(t6, Duration.seconds(0.75), 0, 35);
-            TranslateTransition tt6R30 = createTranslateTransition(t6, Duration.seconds(0.75), 170, 0);
-            TranslateTransition tt6D30a = createTranslateTransition(t6, Duration.seconds(0.75), 0, 150);
-            TranslateTransition tt6R30a = createTranslateTransition(t6, Duration.seconds(0.75), 185, 0);
-            TranslateTransition tt6D30b = createTranslateTransition(t6, Duration.seconds(0.75), 0, 70);
-            tt6D30b.setOnFinished(e -> t6.setVisible(false));
-            SequentialTransition sequential30 = new SequentialTransition(tt1Down30, tt1Right30, tt1Up30, tt6D30, tt6R30, tt6D30a, tt6R30a, tt6D30b);
-            sequential30.play(); break;
+        	t6.setVisible(true);
+
+        	ParallelTransition parallel1 = new ParallelTransition(
+        	    createTranslateTransition(t1, Duration.seconds(0.5), 0, 100),
+        	    createTranslateTransition(t6, Duration.seconds(0.5), 0, 35)
+        	);
+
+        	ParallelTransition parallel2 = new ParallelTransition(
+        	    createTranslateTransition(t1, Duration.seconds(0.5), 450, 0), 
+        	    createTranslateTransition(t6, Duration.seconds(0.5), 170, 0) 
+        	);
+
+        	ParallelTransition parallel3 = new ParallelTransition(
+        	    createTranslateTransition(t1, Duration.seconds(0.5), 0, -50),  
+        	    createTranslateTransition(t6, Duration.seconds(0.5), 0, 150) 
+        	);
+        	TranslateTransition tt6R30a = createTranslateTransition(t6, Duration.seconds(0.5), 185, 0);
+        	TranslateTransition tt6D30b = createTranslateTransition(t6, Duration.seconds(0.5), 0, 70);
+        	tt6D30b.setOnFinished(e -> t6.setVisible(false));
+        	SequentialTransition finalAnimation = new SequentialTransition(
+        	    parallel1, parallel2, parallel3, tt6R30a, tt6D30b
+        	);
+
+        	finalAnimation.play();
+        	break;
+        case 31:
+        	t1.setStyle("-fx-pref-width: 150");
+        	TranslateTransition tt1Up31 = createTranslateTransition(t1, Duration.seconds(0.5), 0, -50);
+        	TranslateTransition tt1L = createTranslateTransition(t1, Duration.seconds(0.5), -50, 0);
+        	//SequentialTransition sequential31 = new SequentialTransition(tt1Up31,tt1L);
+        	tt1Up31.play(); tt1L.play();
+        	//sequential31.play(); 
+        	break;
 		}
 			
 	}

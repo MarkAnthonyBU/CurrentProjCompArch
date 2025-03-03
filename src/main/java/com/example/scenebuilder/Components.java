@@ -97,7 +97,7 @@ public class Components {
              break;
          case 13:
              tableComps.get(3).setInstruction("ADD M(X) 501");
-             tableComps.get(4).setInstruction("-");
+             tableComps.get(4).setInstruction("ADD M(X)");
              break;
          case 14:
              tableComps.get(1).setInstruction("501");

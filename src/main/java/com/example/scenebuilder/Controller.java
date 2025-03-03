@@ -143,11 +143,6 @@ public class Controller {
 
     @FXML
     public void initialize0() {
-//        if (componentColumn == null || instructionColumn == null) {
-//            System.out.println("❌ ERROR: TableColumns are null! Check FXML fx:id.");
-//            return;
-//        }
-
         // Set up the TableColumn cell value factories.
         componentColumn.setCellValueFactory(new PropertyValueFactory<>("componentName"));
         instructionColumn.setCellValueFactory(new PropertyValueFactory<>("instruction"));
@@ -168,11 +163,7 @@ public class Controller {
     }
     @FXML
     public void initialize2() {
-//        System.out.println("Component Column: " + componentColumn);
-//        System.out.println("Instruction Column: " + instructionColumn);
         IASComponentClass.updateLabels(11, titleLabel, infoLabel, infoContainer);
-
-        // Start instruction, now that the list has data.
         startInstruction();
         btnStart.setText("Next");
         btnStart.setOnAction(event -> playAnimation());
@@ -187,8 +178,6 @@ public class Controller {
 	int step = 1; //Variable used to be used as parameter for a method. Calls for specific step in animation sequence
 	@FXML
 	private TextArea movingTxt, movingTxt1, movingTxt2, movingTxt3, movingTxt4, movingTxt5, movingTxt6;
-	//public TextArea movingTxt1, movingTxt2;
-
 	private boolean isAnimationRunning = false;  /**This is responsible for user to stop spamming nex*/
 
     void playAnimation() {
@@ -197,25 +186,17 @@ public class Controller {
 		if (isAnimationRunning) {
 			return;
 		}
-
 		isAnimationRunning = true;
 		btnStart.setDisable(true);
-
 		TranslateTransition transition = new TranslateTransition(Duration.seconds(1), movingTxt);
-//		transition.setByX(100);
 		transition.setOnFinished(event -> {
 			// Animation finished; re-enable the button and reset the flag.
 			isAnimationRunning = false;
 			btnStart.setDisable(false);
 		});
 		transition.play();
-
 		updTable(step, Components, cpuTableView); /**Updates table */
 
-//    	if (step == 2) {
-//    		btnMAR.setText("MAR = 1");
-//    	}
-//    	else if (step == 7) {btnMAR.setText("MAR = 500");}
     	switch (step) {
     	case 2:
     		btnMAR.setText("MAR = 1"); break;
@@ -240,7 +221,7 @@ public class Controller {
     	case 29:
     		btnMBR.setText("MBR = 7"); break;
     	case 31:
-    		movingTxt1.setText("Number 7 Stored in memory address 500");
+    		movingTxt1.setText("Number 7 Stored in \nmemory address 500");
 			break;
     	}
     	step ++;
@@ -272,50 +253,13 @@ public class Controller {
         movingTxt5.setVisible(false);
         movingTxt6.setVisible(false);
     }
-    
-    
-    
-    
-	private void setButtonActions() {
-		for (int i = 0; i < Components.size() - 1; i++) {
-			Components current = Components.get(i);
-			Components next = Components.get(i+1);
-
-			current.getNextButton().setOnAction(event ->
-					{moveToNextStage(current, next); });
-
-		}
-
-		Components.get(0).enableButton();
-
-	}
-
-	private void moveToNextStage(Components current, Components next) {
-		next.setInstruction(current.getInstruction());
-		next.enableButton();
-		current.disableButton();
-		cpuTableView.refresh();
-
-	}
 
 	private void startInstruction() {
 		Components pc = Components.get(0);
-//		pc.setInstruction("ADD C, A, B");
 		pc.enableButton();
 		cpuTableView.refresh();
 
 	}
 
-	private void handleNextStep(int index) {
-		Components selectedComponent = cpuTableView.getItems().get(index);
-
-		if (index < cpuTableView.getItems().size() - 1) {
-			Components nextComponent = cpuTableView.getItems().get(index + 1);
-			nextComponent.setInstruction(selectedComponent.getInstruction());
-			selectedComponent.setInstruction("-");
-		}
-
-		cpuTableView.refresh();
-	}
 }
 

@@ -19,3 +19,38 @@
     -fx-text-fill: -fx-text-base-color; /* Ensures text stays original color (black) */
     -fx-background-color: derive(-fx-base, -5%); /* Grays out background color so user has idea button is disabled */
 }
+.text-area .scroll-pane {
+    -fx-hbar-policy: never; /* Hide horizontal scrollbar */
+    -fx-vbar-policy: never; /* Hide vertical scrollbar */
+}
+
+/* Forcefully remove scroll bars */
+.text-area .scroll-bar {
+    -fx-pref-width: 0; /* Hides vertical scrollbar */
+    -fx-pref-height: 0; /* Hides horizontal scrollbar */
+    -fx-opacity: 0; /* Makes it invisible */
+    -fx-padding: 0px;
+    -fx-background-color: transparent;
+}
+.text-area{
+    -fx-background-color: transparent; /* Makes background fully transparent */
+    -fx-background-fill: black;
+    -fx-font-size: 13;
+    -fx-border-width: 0; /* Ensures no visible border */
+    -fx-padding: 0;
+    -fx-text-align: center;
+    -fx-alignment: center; /* Centers text vertically and horizontally */
+}
+.text-area .content {
+    -fx-background-color: white; /* Makes the inner part transparent */
+    -fx-alignment: center; /* Centers text vertically and horizontally */
+    -fx-padding: 0px; /* No padding */
+}
+.text-area .viewport {
+    -fx-background-color: transparent; /* Ensures no white background */
+    -fx-padding: 0px; /* No padding */
+}
+.text-area .content .text {
+    -fx-text-alignment: center; /* Align text to left */
+    -fx-padding: 0px; /* No padding */
+}
